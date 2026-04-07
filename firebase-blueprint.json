@@ -1,0 +1,119 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile information",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "Firebase Auth UID"
+        },
+        "name": {
+          "type": "string",
+          "description": "User's full name"
+        },
+        "email": {
+          "type": "string",
+          "description": "User's email address"
+        },
+        "role": {
+          "type": "string",
+          "description": "User's role (e.g., Lead Auditor)"
+        },
+        "bio": {
+          "type": "string",
+          "description": "User's professional bio"
+        },
+        "createdAt": {
+          "type": "timestamp",
+          "description": "When the profile was created"
+        }
+      },
+      "required": ["uid", "name", "email", "role"]
+    },
+    "Audit": {
+      "title": "Audit",
+      "description": "An infrastructure audit session",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "The UID of the user who owns this audit"
+        },
+        "targetUrl": {
+          "type": "string",
+          "description": "The URL or IP being audited"
+        },
+        "auditType": {
+          "type": "string",
+          "description": "Type of audit (e.g., Compliance, Penetration)"
+        },
+        "scope": {
+          "type": "string",
+          "description": "Scope of the audit"
+        },
+        "status": {
+          "type": "string",
+          "description": "Current status (e.g., Running, Completed)"
+        },
+        "riskScore": {
+          "type": "number",
+          "description": "Calculated risk score"
+        },
+        "vulnerabilities": {
+          "type": "object",
+          "description": "Counts of vulnerabilities",
+          "properties": {
+            "high": { "type": "number" },
+            "medium": { "type": "number" },
+            "low": { "type": "number" }
+          }
+        },
+        "createdAt": {
+          "type": "timestamp",
+          "description": "When the audit was created"
+        }
+      },
+      "required": ["userId", "targetUrl", "auditType", "scope", "status", "riskScore", "vulnerabilities"]
+    },
+    "Message": {
+      "title": "Message",
+      "description": "A chat message in the audit assistant",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "The UID of the user who owns this message"
+        },
+        "sender": {
+          "type": "string",
+          "description": "Who sent the message ('user' or 'ai')"
+        },
+        "text": {
+          "type": "string",
+          "description": "The content of the message"
+        },
+        "createdAt": {
+          "type": "timestamp",
+          "description": "When the message was sent"
+        }
+      },
+      "required": ["userId", "sender", "text"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User profiles collection"
+    },
+    "/audits/{auditId}": {
+      "schema": "Audit",
+      "description": "Audits collection"
+    },
+    "/messages/{messageId}": {
+      "schema": "Message",
+      "description": "Chat messages collection"
+    }
+  }
+}

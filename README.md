@@ -1,36 +1,20 @@
-# 🔐 AI-Powered IT Infrastructure Audit Assistant
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+</div>
 
-This project is an AI-driven system designed to assist IT auditors in performing structured infrastructure audits.
+# Run and deploy your AI Studio app
 
-## 🚀 Features
-- Guided audit workflow (Scope → Domains → Analysis → Report)
-- AI-based audit questioning system
-- Structured data extraction
-- Risk scoring engine (Whitebox model)
-- Interactive dashboard (Streamlit)
-- Automated audit report generation (PDF)
+This contains everything you need to run your app locally.
 
-## 🧠 Tech Stack
-- Python
-- Streamlit
-- Ollama (Local LLM)
-- Plotly
-- ReportLab
+View your app in AI Studio: https://ai.studio/apps/bad9f69a-463a-4816-b097-2f72e14f85c6
 
-## 📊 Dashboard Features
-- Risk score visualization
-- Vulnerability analysis
-- Domain-wise breakdown
-- AI-generated insights
+## Run Locally
 
-## 📄 Report
-Generates a professional audit report including:
-- Scope
-- Findings
-- Risk level
-- Recommendations
+**Prerequisites:**  Node.js
 
-## ▶️ How to Run
-```bash
-pip install -r requirements.txt
-streamlit run app.py
+
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`
